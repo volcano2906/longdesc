@@ -1,11 +1,4 @@
 import streamlit as st
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jul  4 00:21:16 2023
-
-@author: volka
-"""
-
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from nltk.corpus import stopwords
@@ -46,7 +39,7 @@ def kelimecevir(kelime):
         return kelime
 
 
-d = input("write target keyword:")
+d = st.text_input("Target Keyword:", "")
 
 
 url = "https://play.google.com/store/search?q=" + \
@@ -248,7 +241,7 @@ df['Average Percentage'] = df[['Competitor', 'Competitor-1', 'Competitor-2','Com
 
 you_long=input("please write your data: ")
 
-competitor_dic["You"]=you_long
+you_long = st.text_area("Your Data:", "")
 kontrol_keyword_usage(competitor_dic,df)
 
 
@@ -271,4 +264,4 @@ you_long=input("please write your data: ")
 df3=kontrol_you_competitor(df,you_long)
 df_kelime_listesi=df3["Keyword"].tolist()
 for ac in df_kelime_listesi:
-    print(ac)
+    st.write(ac)
