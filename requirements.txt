@@ -3,6 +3,5 @@ webdriver_manager
 nltk
 beautifulsoup4
 google-play-scraper
-spacy
 pandas
 streamlit
